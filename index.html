@@ -23,9 +23,19 @@
     border-radius:4px; overflow:hidden; }
   figure img { display:block; width:100%; height:auto; }
   footer { text-align:center; color:var(--muted); font-size:12px; padding:8px 0 28px; }
+  .hint { display:none; }
   @media (max-width:600px) {
     header { padding:8px 12px; } h1 { font-size:17px; } .sub { display:none; }
     main { padding:10px 8px 40px; } figure { margin-bottom:10px; }
+  }
+  @media (max-width:920px) and (orientation:portrait) {
+    .hint { display:flex; position:fixed; left:0; right:0; bottom:0; z-index:9;
+      align-items:center; gap:10px; padding:11px 14px; background:#1c1915; color:#fff;
+      font-size:13px; line-height:1.35; }
+    .hint .ic { font-size:19px; transform:rotate(90deg); }
+    .hint button { margin-left:auto; background:none; border:0; color:#fff;
+      font-size:19px; line-height:1; padding:0 2px; cursor:pointer; }
+    main { padding-bottom:76px; }
   }
 </style>
 </head>
@@ -55,5 +65,11 @@
   <figure><a href="pages/p17.jpg" target="_blank" rel="noopener"><img src="pages/p17.jpg" loading="lazy" alt="作品集 第 17 页"></a></figure>
 </main>
 <footer>点任意一页可放大查看 · 共 17 页</footer>
+<div class="hint" id="hint">
+  <span class="ic">&#8635;</span>
+  <span>建议横屏查看：本作品集是跨页排版，转一下手机能看得更清楚</span>
+  <button type="button" aria-label="关闭提示"
+    onclick="document.getElementById('hint').remove()">&#215;</button>
+</div>
 </body>
 </html>
